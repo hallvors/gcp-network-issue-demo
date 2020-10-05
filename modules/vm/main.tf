@@ -29,16 +29,14 @@ resource google_compute_instance updatevm {
     "allow-iap"
   ]
 
-  # Update VM needs a public IP
-  network_interface {
-    network = "default"
-    access_config {
-    }
-  }
 
   network_interface {
     network    = var.network
     subnetwork = var.subnetwork
+  # Update VM needs a public IP
+    access_config {
+      network_tier = "STANDARD"
+    }
   }
 
   service_account {
