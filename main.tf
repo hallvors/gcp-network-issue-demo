@@ -6,13 +6,6 @@ provider "google" {
   credentials = file("${var.service_account_file}")
 }
 
-provider "google-beta" {
-  project     = var.google_project_id
-  region      = var.google_region
-  zone        = var.google_zone
-  credentials = file("${var.service_account_file}")
-}
-
 terraform {
   required_version = ">= 0.12.6"
 }
